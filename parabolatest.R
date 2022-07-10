@@ -1,0 +1,9 @@
+library(usethis)
+library(devtools)
+library(ggplot2)
+load_all("./src")
+newfun<-function(x)x^2
+myplot<-ggplot(data.frame(x=c(-10,10)),aes(x=x))+stat_function(fun=newfun)
+svglite("testfile.svg")
+plot(myplot)
+dev.off()
